@@ -102,7 +102,7 @@ const onlyTheEvenIndexedSurvive = numbers => {
 // ...
 const bestMoviesOfTheYear = (movies, year) => {
   return movies
-    .filter(movie => movie.year === year && movie.score >= 90)
+    .filter(movie => movie.year === year && movie.score > 90)
     .map(movie => movie.name)
 }
 
@@ -199,21 +199,19 @@ const someoneToLove = array => {
 //   // Your code here
 // }
 
-// function objectKeys(objectOfHobbies) {
-//   const keys = Object.keys(objectOfHobbies)
-//   const answer = keys.map(key => {
-//     const hobby = objectOfHobbies[key]
-//     return `${key} - ${hobby.title}`
-//   })
-// }
-// ...
-
 function objectKeys(objectOfHobbies) {
-  const answer = Object.keys(objectOfHobbies).map(
-    key => `${key} - ${objectOfHobbies[key].title}`
-  )
+  const keys = Object.keys(objectOfHobbies)
+  const answer = keys.map(key => `${key} - ${objectOfHobbies[key].title}`)
   return answer
 }
+// ...
+
+// function objectKeys(objectOfHobbies) {
+//   const answer = Object.keys(objectOfHobbies).map(
+//     key => `${key} - ${objectOfHobbies[key].title}`
+//   )
+//   return answer
+// }
 
 /**
  * NOTE: Don't modify anything below this line...
