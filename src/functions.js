@@ -24,7 +24,7 @@
  */
 
 const yelling = words => {
-  // Your code here
+  return words.map(word => word.toUpperCase())
 }
 
 /**
@@ -38,6 +38,9 @@ const yelling = words => {
  */
 
 // ...
+const doubleTrouble = numbers => {
+  return numbers.map(number => number * 2)
+}
 
 /*
  * 3) Define a function stringyIndexes() that takes an array of
@@ -49,6 +52,9 @@ const yelling = words => {
  */
 
 // ...
+const stringyIndexes = strings => {
+  return strings.map((element, index) => `${element} is at index ${index}`)
+}
 
 /*
  * 4) Define a function onlyTheEvenSurvive that accepts an array of
@@ -59,6 +65,9 @@ const yelling = words => {
  */
 
 // ...
+const onlyTheEvenSurvive = numbers => {
+  return numbers.filter(number => number % 2 === 0)
+}
 
 /*
  * 5) Define a function onlyTheEvenIndexedSurvive that accepts an array of
@@ -69,6 +78,9 @@ const yelling = words => {
  */
 
 // ...
+const onlyTheEvenIndexedSurvive = numbers => {
+  return numbers.filter((number, index) => index % 2 === 0)
+}
 
 /*
  * 6)  Define a function bestMoviesOfTheYear that accepts an array of
@@ -88,6 +100,11 @@ const yelling = words => {
  */
 
 // ...
+const bestMoviesOfTheYear = (movies, year) => {
+  return movies
+    .filter(movie => movie.year === year && movie.score >= 90)
+    .map(movie => movie.name)
+}
 
 /*
  * 7) Define a function everyoneIsOdd that accepts an array of
@@ -99,6 +116,9 @@ const yelling = words => {
  */
 
 // ...
+const everyoneIsOdd = array => {
+  return array.every(element => element % 2 === 1)
+}
 
 /*
  * 8) Define a function findTheNeedle that accepts an array of
@@ -110,6 +130,9 @@ const yelling = words => {
  */
 
 // ...
+const findTheNeedle = elements => {
+  return elements.find(element => element.includes('needle'))
+}
 
 /*
  * 9) Define a function findTheNeedleIndex that accepts an array of
@@ -121,6 +144,9 @@ const yelling = words => {
  */
 
 // ...
+const findTheNeedleIndex = elements => {
+  return elements.findIndex(element => element.includes('needle'))
+}
 
 /*
  *` 10)  Define a function someoneToLove that accepts an array of
@@ -132,6 +158,9 @@ const yelling = words => {
  */
 
 // ...
+const someoneToLove = array => {
+  return array.some(element => element.length === 4)
+}
 
 /*
  * 11)  Define a function objectKeys that accepts an object of
@@ -170,7 +199,21 @@ const yelling = words => {
 //   // Your code here
 // }
 
+// function objectKeys(objectOfHobbies) {
+//   const keys = Object.keys(objectOfHobbies)
+//   const answer = keys.map(key => {
+//     const hobby = objectOfHobbies[key]
+//     return `${key} - ${hobby.title}`
+//   })
+// }
 // ...
+
+function objectKeys(objectOfHobbies) {
+  const answer = Object.keys(objectOfHobbies).map(
+    key => `${key} - ${objectOfHobbies[key].title}`
+  )
+  return answer
+}
 
 /**
  * NOTE: Don't modify anything below this line...
@@ -242,7 +285,7 @@ const tests = [
     }
   },
   {
-    methodName: 'stringyIndex',
+    methodName: 'stringyIndexes',
     test: () => {
       return compare(stringyIndexes(['how', 'now', 'brown', 'cow']), [
         'how is at index 0',
@@ -264,7 +307,7 @@ const tests = [
     }
   },
   {
-    methodName: 'onlyTheEvenIndexSurvive',
+    methodName: 'onlyTheEvenIndexedSurvive',
     test: () => {
       return compare(
         onlyTheEvenIndexedSurvive([
@@ -428,7 +471,7 @@ const tests = [
       const answer = Object.keys(objectOfHobbies).map(
         key => `${key} - ${objectOfHobbies[key].title}`
       )
-      return compare(objectKeys(objectKeys), answer)
+      return compare(objectKeys(objectOfHobbies), answer)
     }
   }
 ]
